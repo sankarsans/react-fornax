@@ -2,7 +2,7 @@ import logoImg from "../assets/logo.png";
 
 export default function Header() {
   // Custom Smooth Scroll Interceptor
-  const handleScroll = (e, targetId) => {
+  const handleScroll = (e: any, targetId: any) => {
     e.preventDefault(); // Stop default instant jumping behavior
 
     const targetElement = document.getElementById(targetId);

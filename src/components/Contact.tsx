@@ -1,5 +1,5 @@
 import { contactInfo } from "./content/content.json";
-import React, { useState } from "react";
+import { useState } from "react";
 
 export default function Contact() {
   // Local state for the contact form inputs
@@ -10,11 +10,11 @@ export default function Contact() {
     message: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log("Form Submitted Safely:", formData);
     alert("Thank you! Your enquiry has been received.");

@@ -1,5 +1,4 @@
 import { services } from "./content/content.json";
-import React from "react";
 
 export default function Whatwedo() {
   return (

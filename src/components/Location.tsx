@@ -174,7 +174,7 @@ export default function Location() {
                 title="Office Location Map"
                 className="w-100 h-100 dark-map-iframe"
                 style={{ border: 0, minHeight: "420px", display: "block" }}
-                allowFullScreen=""
+                // allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>

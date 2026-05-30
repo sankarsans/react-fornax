@@ -5,7 +5,8 @@ export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
 
   // State for active image preview inside lightbox modal
-  const [selectedProject, setSelectedProject] = useState(null);
+  // const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState<any | null>(null);
 
   // Filter categorization handler logic
   const filteredProjects =
@@ -60,13 +61,13 @@ export default function Projects() {
 
         {/* Main Grid System */}
         <div className="row g-4">
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project: any) => (
             <div className="col-12 col-md-6 col-lg-4" key={project.id}>
               {/* Image Item Card Container */}
               <div
                 onClick={() => setSelectedProject(project)}
                 className="position-relative overflow-hidden rounded-4 project-card bg-black ratio ratio-4x3 shadow"
-                style={{ cursor: "pointer", "--bs-aspect-ratio": "75%" }}
+                style={{ cursor: "pointer" }}
               >
                 {/* Image Component layer */}
                 <img
@@ -138,17 +139,17 @@ export default function Projects() {
             onClick={(e) => e.stopPropagation()} // Prevents click inside container from closing modal
           >
             <img
-              src={selectedProject.image}
-              alt={selectedProject.title}
+              src={selectedProject?.image}
+              alt={selectedProject?.title}
               className="w-100 h-auto rounded-3 shadow-inner object-fit-contain"
               style={{ maxHeight: "75vh" }}
             />
             <div className="p-3 text-start bg-dark">
               <span className="badge bg-warning text-dark mb-1 rounded-1">
-                {selectedProject.category}
+                {selectedProject?.category}
               </span>
               <h4 className="text-white fw-bold mb-1">
-                {selectedProject.title}
+                {selectedProject?.title}
               </h4>
             </div>
           </div>
