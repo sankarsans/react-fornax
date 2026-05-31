@@ -13,10 +13,12 @@ import Location from "./Location";
 import Cta from "./Cta";
 import Footer from "./Footer";
 import Banner from "./Banner";
+import ArchitecturalPreloader from "./Preloader";
 
 export default function App() {
   return (
     <div>
+      <ArchitecturalPreloader />
       <Header />
 
       <div id="home">

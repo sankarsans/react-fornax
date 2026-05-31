@@ -14,10 +14,31 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form Submitted Safely:", formData);
-    alert("Thank you! Your enquiry has been received.");
+
+    // 1. Define your operational receiving company business mobile number
+    // Format: International format without any spaces, dashes, or '+' signs (e.g., 91xxxxxxxxxx)
+    const companyWhatsappNumber = "9655483868";
+
+    // 2. Draft a clean, professional multi-line construction specification statement string
+    const messageString =
+      `🏗️ *New Business Enquiry - Fornax Home Developers*\n\n` +
+      `👤 *Name:* ${formData.name}\n` +
+      `📞 *Phone:* ${formData.phone}\n` +
+      `✉️ *Email:* ${formData.email}\n` +
+      `💬 *Message:* ${formData.message}`;
+
+    // 3. Encode the message string text to handle spaces, breaks, and special emojis cleanly in browsers
+    const encodedMessage = encodeURIComponent(messageString);
+
+    // 4. Synthesize the unified direct application messaging routing URL
+    const whatsappApiUrl = `https://wa.me/${companyWhatsappNumber}?text=${encodedMessage}`;
+
+    // 5. Open WhatsApp in a clean, isolated separate browser navigation tab window sandbox
+    window.open(whatsappApiUrl, "_blank", "noopener,noreferrer");
+
+    // 6. Optional UI Clean-up: Reset local text field controller inputs back to clear placeholders
     setFormData({ name: "", phone: "", email: "", message: "" });
   };
 
