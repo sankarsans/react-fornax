@@ -2,7 +2,7 @@ import { aboutUs } from "./content/content.json";
 
 export default function About() {
   return (
-    <section className="py-5 bg-light-premium text-dark overflow-hidden position-relative">
+    <section className="pt-5 pb-3 bg-light-premium text-dark overflow-hidden position-relative">
       {/* Background Accent Grid */}
       <div className="position-absolute dot-grid-light top-0 start-0 z-0"></div>
 

@@ -152,7 +152,7 @@ export default function Footer() {
             >
               FORNAX <span className="text-warning">HOME DEVELOPERS</span>
             </div>
-            <div className="border-start ps-3 border-secondary border-opacity-20 d-none d-sm-block">
+            <div className="border-secondary border-opacity-20 d-none d-sm-block">
               {footerData.copyright}
             </div>
           </div>
@@ -224,8 +224,8 @@ export default function Footer() {
             {footerData.copyright}
           </div>
           <div
-            className="col-12 text-center text-md-start text-muted mt-1"
-            style={{ fontSize: "0.75rem", opacity: 0.5 }}
+            className="col-12 text-center text-md-start  mt-1"
+            style={{ fontSize: "0.75rem", opacity: 1 }}
           >
             {footerData.builtBy}
           </div>

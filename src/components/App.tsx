@@ -14,6 +14,8 @@ import Cta from "./Cta";
 import Footer from "./Footer";
 import Banner from "./Banner";
 import ArchitecturalPreloader from "./Preloader";
+import FloatingContact from "./FloatingContact";
+import WhyFornax from "./WhyFornax";
 
 export default function App() {
   return (
@@ -46,6 +48,7 @@ export default function App() {
         <Package />
       </div>
       <Stats />
+      <WhyFornax />
       <Experts />
       <Location />
       <div id="Contact">
@@ -53,6 +56,7 @@ export default function App() {
       </div>
       <Cta />
       <Footer />
+      <FloatingContact />
     </div>
   );
 }

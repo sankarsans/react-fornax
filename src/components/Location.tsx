@@ -5,7 +5,7 @@ export default function Location() {
     <div
       className="location map-section py-5 px-3"
       style={{
-        backgroundColor: "#121212",
+        backgroundColor: "#ffffff",
         position: "relative",
         overflow: "hidden",
       }}
@@ -15,7 +15,7 @@ export default function Location() {
         className="position-absolute top-0 start-0 w-100 h-100 opacity-5"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
+            "linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px)",
           backgroundSize: "40px 40px",
           pointerEvents: "none",
         }}
@@ -33,14 +33,14 @@ export default function Location() {
                 Find Us
               </span>
               <h2
-                className="fw-black display-5 text-white mb-3"
+                className="fw-black display-5 text-dark mb-3"
                 style={{ fontWeight: "800", letterSpacing: "-0.02em" }}
               >
                 {locationInfo.sectionTitle}
               </h2>
               <p
                 className="text-muted mb-4 lh-lg location-color"
-                style={{ fontSize: "1rem", color: "#a0a0a0" }}
+                style={{ fontSize: "1rem", color: "#4a5568" }}
               >
                 {locationInfo.subtitle}
               </p>
@@ -49,8 +49,8 @@ export default function Location() {
               <div
                 className="p-3 rounded-4 mb-4 border d-flex align-items-start"
                 style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.02)",
-                  borderColor: "rgba(255, 255, 255, 0.08)",
+                  backgroundColor: "#f8f9fa",
+                  borderColor: "#e2e8f0",
                 }}
               >
                 <div
@@ -58,25 +58,25 @@ export default function Location() {
                   style={{
                     width: "42px",
                     height: "42px",
-                    backgroundColor: "rgba(255, 193, 7, 0.08)",
-                    border: "1px solid rgba(255, 193, 7, 0.15)",
+                    backgroundColor: "rgba(255, 193, 7, 0.15)",
+                    border: "1px solid rgba(255, 193, 7, 0.3)",
                   }}
                 >
                   <i
                     className="bi bi-geo-alt-fill"
-                    style={{ color: "#FFC107", fontSize: "1.1rem" }}
+                    style={{ color: "#D4AF37", fontSize: "1.1rem" }}
                   ></i>
                 </div>
                 <div>
                   <h6
-                    className="fw-bold text-white mb-1"
+                    className="fw-bold text-dark mb-1"
                     style={{ fontSize: "0.95rem" }}
                   >
                     Head Office
                   </h6>
                   <p
                     className="mb-0 text-muted lh-base location-color-1"
-                    style={{ fontSize: "0.88rem", color: "#b0b0b0" }}
+                    style={{ fontSize: "0.88rem", color: "#718096" }}
                   >
                     {contactInfo.address}
                   </p>
@@ -87,8 +87,8 @@ export default function Location() {
               <div
                 className="p-3 rounded-4 border"
                 style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.02)",
-                  borderColor: "rgba(255, 255, 255, 0.08)",
+                  backgroundColor: "#f8f9fa",
+                  borderColor: "#e2e8f0",
                 }}
               >
                 <div className="d-flex align-items-center mb-3">
@@ -97,17 +97,17 @@ export default function Location() {
                     style={{
                       width: "42px",
                       height: "42px",
-                      backgroundColor: "rgba(255, 193, 7, 0.08)",
-                      border: "1px solid rgba(255, 193, 7, 0.15)",
+                      backgroundColor: "rgba(255, 193, 7, 0.15)",
+                      border: "1px solid rgba(255, 193, 7, 0.3)",
                     }}
                   >
                     <i
                       className="bi bi-clock-history"
-                      style={{ color: "#FFC107", fontSize: "1.1rem" }}
+                      style={{ color: "#D4AF37", fontSize: "1.1rem" }}
                     ></i>
                   </div>
                   <h6
-                    className="fw-bold text-white mb-0"
+                    className="fw-bold text-dark mb-0"
                     style={{ fontSize: "0.95rem" }}
                   >
                     Office Timings
@@ -118,17 +118,17 @@ export default function Location() {
                     <div
                       key={idx}
                       className="d-flex justify-content-between align-items-center border-bottom pb-2 last-border-none"
-                      style={{ borderColor: "rgba(255,255,255,0.05)" }}
+                      style={{ borderColor: "#e2e8f0" }}
                     >
                       <span
                         className="text-muted small location-color"
-                        style={{ color: "#a0a0a0" }}
+                        style={{ color: "#718096" }}
                       >
                         {time.days}
                       </span>
                       <span
-                        className="text-white small font-monospace fw-semibold"
-                        style={{ color: "#e0e0e0" }}
+                        className="text-dark small font-monospace fw-semibold"
+                        style={{ color: "#2d3748" }}
                       >
                         {time.hours}
                       </span>
@@ -162,19 +162,18 @@ export default function Location() {
           {/* RIGHT COLUMN: Modern Full Bleed Embedded Maps Canvas */}
           <div className="col-12 col-lg-7">
             <div
-              className="w-100 h-100 rounded-4 overflow-hidden position-relative map-frame-wrapper border shadow-lg"
+              className="w-100 h-100 rounded-4 overflow-hidden position-relative map-frame-wrapper border shadow-sm"
               style={{
                 minHeight: "420px",
-                borderColor: "rgba(255, 255, 255, 0.08)",
-                backgroundColor: "#1e1e1e",
+                borderColor: "#e2e8f0",
+                backgroundColor: "#f8f9fa",
               }}
             >
               <iframe
                 src={locationInfo.googleMapsEmbedUrl}
                 title="Office Location Map"
-                className="w-100 h-100 dark-map-iframe"
+                className="w-100 h-100 light-map-iframe"
                 style={{ border: 0, minHeight: "420px", display: "block" }}
-                // allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>

@@ -3,9 +3,9 @@ import { services } from "./content/content.json";
 export default function Whatwedo() {
   return (
     <section
-      className="whatwedo text-white py-5 px-3"
+      className="whatwedo text-dark py-5 px-3"
       style={{
-        background: "linear-gradient(135deg, #0f1115 0%, #161920 100%)",
+        background: "linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)",
         position: "relative",
       }}
     >
@@ -19,7 +19,7 @@ export default function Whatwedo() {
             Our Specialization
           </span>
           <h2
-            className="fw-black display-5 text-white"
+            className="fw-black display-5 text-dark"
             style={{ fontWeight: "800", letterSpacing: "-0.03em" }}
           >
             What do we do?
@@ -30,14 +30,14 @@ export default function Whatwedo() {
         <div className="row g-4 justify-content-center">
           {services.map((service) => (
             <div className="col-12 col-md-6 col-lg-3" key={service.id}>
-              {/* Premium Dark Card with applied 'service-card' link hook */}
+              {/* Premium Light Card with applied 'service-card' link hook */}
               <div
-                className="card border-0 p-4 h-100 d-flex flex-column justify-content-between align-items-center position-relative shadow-lg text-center service-card"
+                className="card border-0 p-4 h-100 d-flex flex-column justify-content-between align-items-center position-relative shadow-sm text-center service-card"
                 style={{
-                  backgroundColor: "#1d212c",
+                  backgroundColor: "#ffffff",
                   borderRadius: "20px",
-                  border: "1px solid rgba(255, 255, 255, 0.05)",
-                  boxShadow: "0 15px 35px rgba(0,0,0,0.2)",
+                  border: "1px solid rgba(0, 0, 0, 0.05)",
+                  boxShadow: "0 15px 35px rgba(0, 0, 0, 0.06)",
                   transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)", // Custom ease transition curve
                 }}
               >
@@ -50,34 +50,34 @@ export default function Whatwedo() {
                       width: "60px",
                       height: "60px",
                       background:
-                        "linear-gradient(135deg, rgba(241, 196, 15, 0.15) 0%, rgba(241, 196, 15, 0.03) 100%)",
-                      border: "1px solid rgba(241, 196, 15, 0.3)",
-                      boxShadow: "0 8px 20px rgba(241, 196, 15, 0.1)",
+                        "linear-gradient(135deg, rgba(241, 196, 15, 0.2) 0%, rgba(241, 196, 15, 0.05) 100%)",
+                      border: "1px solid rgba(241, 196, 15, 0.4)",
+                      boxShadow: "0 8px 20px rgba(241, 196, 15, 0.15)",
                       transition: "all 0.3s ease",
                     }}
                   >
                     <i
                       className={`bi ${service.icon} fs-4`}
                       style={{
-                        color: "#f1c40f",
+                        color: "#d4af37", // Slightly darker yellow/gold for better visibility on white
                         transition: "transform 0.3s ease",
                       }}
                     ></i>
                   </div>
 
                   {/* Refined Card Title */}
-                  <h4 className="fw-bold text-white fs-5 mb-3 px-1 lh-base">
+                  <h4 className="fw-bold text-dark fs-5 mb-3 px-1 lh-base">
                     {service.title}
                   </h4>
 
                   {/* High Legibility Body Copy */}
                   <p
-                    className="mb-4 text-secondary px-2 text-secondary-color"
+                    className="mb-4 text-muted px-2"
                     style={{
                       fontSize: "0.875rem",
                       lineHeight: "1.7",
                       fontWeight: "400",
-                      color: "#a0a5b5",
+                      color: "#4a5568", // Dark slate gray for strong typography legibility
                     }}
                   >
                     {service.description}

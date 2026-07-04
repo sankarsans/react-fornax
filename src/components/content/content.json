@@ -30,10 +30,10 @@
     }
   ],
   "aboutUs": {
-    "subTitle": "SINCE 2014",
+    "subTitle": "SINCE 2018",
     "title": "Fornax Home Developers",
     "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
-    "description": "The primary goal of Shantha Ventures is to provide quality construction work and unmatched customer satisfaction in this construction industry. We cater Industrial, commercial and residential construction projects. At present we are operating in and around Bengaluru. We offer our clients wide range of choices in terms of design, budget and location. We are the best pick when it comes to handling turnkey projects. \"Our Motto is to keep the ASSURANCE DELIVERED."
+    "description": "The primary goal of Fornax Home Developers is to provide quality construction work and unmatched customer satisfaction in this construction industry. We cater Industrial, commercial and residential construction projects. At present we are operating in and around Bengaluru. We offer our clients wide range of choices in terms of design, budget and location. We are the best pick when it comes to handling turnkey projects. \"Our Motto is to keep the ASSURANCE DELIVERED.\""
   },
   "services": [
     {
@@ -138,31 +138,24 @@
   "packages": [
     {
       "id": 1,
-      "title": "BASICPACKAGE",
-      "price": "1949",
+      "title": "STANDARD PACKAGE",
+      "price": "2199",
       "icon": "bi-house",
       "note": ""
     },
     {
       "id": 2,
       "title": "PREMIUM PACKAGE",
-      "price": "2449",
+      "price": "2399",
       "icon": "bi-bank",
       "note": ""
     },
     {
       "id": 3,
-      "title": "LUXURY PACKAGE",
-      "price": "3349",
+      "title": "ULTRA LUXURY PACKAGE",
+      "price": "2899",
       "icon": "bi-lightning-charge",
       "note": ""
-    },
-    {
-      "id": 4,
-      "title": "ULTRA LUXURY PACKAGE",
-      "price": "4999",
-      "icon": "bi-shapes",
-      "note": "Limited Interior Included"
     }
   ],
   "stats": [
@@ -240,6 +233,23 @@
     "phone": "+91 9655483868",
     "email": "info.fornaxhd@gmail.com",
     "copyright": "© 2026 Fornax Home Developers. All Rights Reserved.",
-    "builtBy": "Built by Prakira Productions"
-  }
+    "builtBy": "Built by Sankar"
+  },
+  "whyFornax": [
+    { "id": 1, "count": "7+", "label": "Years of Experience" },
+    { "id": 2, "count": "150+", "label": "Completed Projects" },
+    { "id": 3, "count": "30+", "label": "Ongoing Projects" },
+    { "id": 4, "count": "10", "label": "Years Structural Warranty" },
+    { "id": 5, "count": "125+", "label": "Quality Checks" }
+  ],
+  "fornaxFeatures": [
+    { "id": 1, "title": "Dedicated Full Time", "subtitle": "Site Engineer" },
+    { "id": 2, "title": "Realtime", "subtitle": "Project Tracking" },
+    { "id": 3, "title": "On-Time", "subtitle": "Handover" },
+    {
+      "id": 4,
+      "title": "One Stop Solution",
+      "subtitle": "Design + Construction + Interior"
+    }
+  ]
 }

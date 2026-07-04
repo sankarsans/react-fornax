@@ -5,7 +5,6 @@ export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
 
   // State for active image preview inside lightbox modal
-  // const [selectedProject, setSelectedProject] = useState(null);
   const [selectedProject, setSelectedProject] = useState<any | null>(null);
 
   // Filter categorization handler logic
@@ -19,8 +18,8 @@ export default function Projects() {
 
   return (
     <div
-      className="projects bg-dark text-white py-5 px-3"
-      style={{ backgroundColor: "#121212", minHeight: "100vh" }}
+      className="projects bg-white text-dark py-5 px-3"
+      style={{ backgroundColor: "#ffffff", minHeight: "100vh" }}
     >
       <div className="container my-4">
         {/* Header Block */}
@@ -29,7 +28,7 @@ export default function Projects() {
             Our Work Showcase
           </span>
           <h2
-            className="fw-black display-5 text-white"
+            className="fw-black display-5 text-dark"
             style={{ fontWeight: "800", letterSpacing: "-0.03em" }}
           >
             Our Projects
@@ -45,10 +44,8 @@ export default function Projects() {
               className="btn px-4 py-2 text-capitalize transition-all border-0 rounded-3 text-sm"
               style={{
                 backgroundColor:
-                  activeFilter === tag
-                    ? "#FFC107"
-                    : "rgba(255, 255, 255, 0.05)",
-                color: activeFilter === tag ? "#000000" : "#b3b3b3",
+                  activeFilter === tag ? "#FFC107" : "rgba(0, 0, 0, 0.05)",
+                color: activeFilter === tag ? "#000000" : "#4a5568",
                 fontWeight: "600",
                 fontSize: "0.9rem",
                 transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -66,7 +63,7 @@ export default function Projects() {
               {/* Image Item Card Container */}
               <div
                 onClick={() => setSelectedProject(project)}
-                className="position-relative overflow-hidden rounded-4 project-card bg-black ratio ratio-4x3 shadow"
+                className="position-relative overflow-hidden rounded-4 project-card bg-light ratio ratio-4x3 shadow-sm"
                 style={{ cursor: "pointer" }}
               >
                 {/* Image Component layer */}
@@ -84,7 +81,7 @@ export default function Projects() {
                   className="position-absolute bottom-0 start-0 w-100 p-4 project-overlay d-flex flex-column justify-content-end"
                   style={{
                     background:
-                      "linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, transparent 100%)",
+                      "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, transparent 100%)",
                     opacity: 0,
                     transform: "translateY(10px)",
                     transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -113,14 +110,14 @@ export default function Projects() {
         <div
           className="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center z-3 px-3 animate-fade-in"
           style={{
-            backgroundColor: "rgba(10, 10, 10, 0.9)",
+            backgroundColor: "rgba(255, 255, 255, 0.85)",
             backdropFilter: "blur(8px)",
           }}
           onClick={() => setSelectedProject(null)} // Dismiss modal when clicking background overlay
         >
           {/* Close Floating Button */}
           <button
-            className="position-absolute top-0 end-0 m-4 btn text-white border-0 bg-dark bg-opacity-50 rounded-circle d-flex align-items-center justify-content-center"
+            className="position-absolute top-0 end-0 m-4 btn text-dark border-0 bg-light bg-opacity-75 rounded-circle d-flex align-items-center justify-content-center shadow-sm"
             style={{ width: "45px", height: "45px" }}
             onClick={() => setSelectedProject(null)}
           >
@@ -129,12 +126,12 @@ export default function Projects() {
 
           {/* Modal Container Structure */}
           <div
-            className="bg-dark rounded-4 overflow-hidden shadow-2xl p-2 animate-scale-up border"
+            className="bg-white rounded-4 overflow-hidden shadow-lg p-2 animate-scale-up border"
             style={{
               maxWidth: "850px",
               width: "100%",
-              backgroundColor: "#1a1a1a",
-              borderColor: "#2d2d2d",
+              backgroundColor: "#ffffff",
+              borderColor: "#e2e8f0",
             }}
             onClick={(e) => e.stopPropagation()} // Prevents click inside container from closing modal
           >
@@ -144,11 +141,11 @@ export default function Projects() {
               className="w-100 h-auto rounded-3 shadow-inner object-fit-contain"
               style={{ maxHeight: "75vh" }}
             />
-            <div className="p-3 text-start bg-dark">
-              <span className="badge bg-warning text-dark mb-1 rounded-1">
+            <div className="p-3 text-start bg-white">
+              <span className="badge bg-warning text-dark mb-2 rounded-1">
                 {selectedProject?.category}
               </span>
-              <h4 className="text-white fw-bold mb-1">
+              <h4 className="text-dark fw-bold mb-1">
                 {selectedProject?.title}
               </h4>
             </div>
