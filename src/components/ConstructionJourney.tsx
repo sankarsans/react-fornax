@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const journeySteps = [
   {
@@ -52,7 +52,7 @@ const journeySteps = [
 ];
 
 export default function ConstructionJourney() {
-  const [hoveredIdx, setHoveredIdx] = useState(null);
+  const [hoveredIdx, setHoveredIdx] = useState(null as any);
 
   return (
     <section

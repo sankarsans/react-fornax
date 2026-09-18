@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ContactBanner from "./ContactBanner";
 import ProcessSteps from "./ProcessSteps";
 import ConstructionJourney from "./ConstructionJourney";
@@ -67,7 +67,7 @@ const features = [
 ];
 
 export default function DesignPackage() {
-  const renderStatus = (included) =>
+  const renderStatus = (included: boolean) =>
     included ? (
       <span
         className="fw-bold"
@@ -359,6 +359,7 @@ export default function DesignPackage() {
         </div>
         <ContactBanner
           isOpen={isModalOpen}
+          selectedPackage=""
           onClose={() => setIsModalOpen(false)}
         />
       </section>

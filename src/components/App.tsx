@@ -28,9 +28,11 @@ export default function App() {
       <ScrollToTop />
       <ContactBanner
         isOpen={isModalOpen}
+        selectedPackage=""
         onClose={() => setIsModalOpen(false)}
       />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/ContructionPackage" element={<ContructionPackage />} />
         <Route path="/DesignPackage" element={<DesignPackage />} />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ConstructionPackagesDifference from "./ConstructionPackagesDifference";
 
 const PACKAGES = [
@@ -58,9 +58,9 @@ export default function ConstructionPackage() {
 
   const currentPackage =
     PACKAGES.find((p) => p.id === selectedPackageId) || PACKAGES[0];
-  const activeFloors = FLOOR_OPTIONS[selectedFloorsIndex].names;
+  const activeFloors: any = FLOOR_OPTIONS[selectedFloorsIndex].names;
 
-  const handleFloorAreaChange = (floorName, val) => {
+  const handleFloorAreaChange = (floorName: any, val: any) => {
     setFloorAreas((prev) => ({
       ...prev,
       [floorName]: val,
@@ -73,12 +73,15 @@ export default function ConstructionPackage() {
   const COMPOUND_RATE = 425;
 
   // Individual item cost calculations
-  const floorCosts = activeFloors.map((floorName) => {
-    const area = parseFloat(floorAreas[floorName]) || 0;
+  const floorCosts: any = activeFloors.map((floorName: any) => {
+    const area: any = parseFloat(floorAreas[floorName]) || 0;
     return area * currentPackage.rate;
   });
 
-  const totalFloorsCost = floorCosts.reduce((acc, curr) => acc + curr, 0);
+  const totalFloorsCost = floorCosts.reduce(
+    (acc: any, curr: any) => acc + curr,
+    0,
+  );
 
   const sumpCost = (parseFloat(sumpLiters) || 0) * SUMP_RATE;
   const septicCost = (parseFloat(septicLiters) || 0) * SEPTIC_RATE;
@@ -89,7 +92,7 @@ export default function ConstructionPackage() {
 
   const totalCost = totalFloorsCost + sumpCost + septicCost + compoundCost;
 
-  const formatCurrency = (amount) =>
+  const formatCurrency = (amount: any) =>
     `Rs. ${Math.round(amount).toLocaleString("en-IN")}`;
 
   return (
@@ -464,7 +467,7 @@ export default function ConstructionPackage() {
                     }}
                   >
                     <td
-                      colSpan="4"
+                      colSpan={4}
                       className="px-4 py-3 text-end fw-black text-dark text-uppercase"
                       style={{
                         fontSize: "0.95rem",

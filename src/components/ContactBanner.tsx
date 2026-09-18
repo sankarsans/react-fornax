@@ -1,6 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-export default function ContactBanner({ isOpen, onClose, selectedPackage }) {
+export default function ContactBanner({
+  isOpen,
+  onClose,
+  selectedPackage,
+}: any) {
   const [animate, setAnimate] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -19,14 +23,14 @@ export default function ContactBanner({ isOpen, onClose, selectedPackage }) {
     }
   }, [isOpen]);
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log("Form submitted:", { ...formData, package: selectedPackage });
     onClose();

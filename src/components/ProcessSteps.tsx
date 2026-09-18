@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const steps = [
   {
@@ -24,7 +24,7 @@ const steps = [
 ];
 
 export default function ProcessSteps() {
-  const [hoveredIdx, setHoveredIdx] = useState(null);
+  const [hoveredIdx, setHoveredIdx] = useState(null as any);
 
   return (
     <section
