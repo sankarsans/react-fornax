@@ -1,13 +1,24 @@
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logoImg from "../assets/logo.png";
 
 export default function Header() {
-  // Custom Smooth Scroll Interceptor
-  const handleScroll = (e: any, targetId: any) => {
-    e.preventDefault(); // Stop default instant jumping behavior
+  const location = useLocation();
+  const navigate = useNavigate();
 
+  // Check if current page is Home (adjust '/' or '/Home' to match your routing)
+  const isHomePage =
+    location.pathname === "/" || location.pathname.toLowerCase() === "/home";
+
+  const closeMobileMenu = () => {
+    const navbarCollapse = document.getElementById("navbarNav");
+    if (navbarCollapse && navbarCollapse.classList.contains("show")) {
+      navbarCollapse.classList.remove("show");
+    }
+  };
+
+  const scrollToElement = (targetId: string) => {
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
-      // Find the position of the section minus an offset for the sticky navbar height (approx 70px)
       const navbarOffset = 72;
       const elementPosition = targetElement.getBoundingClientRect().top;
       const offsetPosition =
@@ -15,38 +26,41 @@ export default function Header() {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth", // Native smooth scroll engine trigger
+        behavior: "smooth",
       });
+    }
+  };
 
-      // Optional: Close Bootstrap mobile menu automatically after a link click
-      const navbarCollapse = document.getElementById("navbarNav");
-      if (navbarCollapse && navbarCollapse.classList.contains("show")) {
-        // Simple fallback to remove show class or trigger programmatic BS collapse toggle
-        navbarCollapse.classList.remove("show");
-      }
+  const handleScroll = (e: any, targetId: string) => {
+    e.preventDefault();
+    closeMobileMenu();
+
+    if (isHomePage) {
+      // If already on Home, scroll immediately
+      scrollToElement(targetId);
+    } else {
+      // If on another page, navigate to Home and pass target section in state
+      navigate(`/Home#${targetId}`, { state: { scrollTo: targetId } });
     }
   };
 
   return (
-    // position-sticky top-0 keeps the navbar visible at all times
     <nav
       className="navbar navbar-expand-lg navbar-light bg-white position-sticky top-0 z-3 shadow-sm py-3"
       style={{ borderBottom: "1px solid #eaedf0" }}
     >
       <div className="container">
-        <a
-          className="navbar-brand fw-black text-dark"
-          href="#"
-          onClick={(e) => handleScroll(e, "home")}
-          style={{ fontWeight: "900", letterSpacing: "-0.01em" }}
+        <Link
+          to="/Home"
+          className="nav-link text-secondary hover-gold-nav fw-semibold px-2"
         >
           <img
             src={logoImg}
-            alt="Shantha Ventures Logo"
+            alt="Fornax Home Developers Logo"
             height="55"
             className="d-inline-block align-top me-2"
           />
-        </a>
+        </Link>
 
         <button
           className="navbar-toggler border-0 shadow-none"
@@ -67,7 +81,7 @@ export default function Header() {
           <ul className="navbar-nav gap-2 mt-3 mt-lg-0">
             <li className="nav-item">
               <a
-                className="nav-link text-secondary hover-gold-nav fw-semibold px-3"
+                className="nav-link text-secondary hover-gold-nav fw-semibold px-2"
                 href="#About"
                 onClick={(e) => handleScroll(e, "About")}
               >
@@ -76,28 +90,28 @@ export default function Header() {
             </li>
 
             <li className="nav-item">
-              <a
-                className="nav-link text-secondary hover-gold-nav fw-semibold px-3"
-                href="#Features"
-                onClick={(e) => handleScroll(e, "Features")}
+              <Link
+                to="/ContructionPackage"
+                className="nav-link text-secondary hover-gold-nav fw-semibold px-2"
+                onClick={closeMobileMenu}
               >
-                Features
-              </a>
+                Construction Package
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link
+                to="/DesignPackage"
+                className="nav-link text-secondary hover-gold-nav fw-semibold px-2"
+                onClick={closeMobileMenu}
+              >
+                Design Package
+              </Link>
             </li>
 
             <li className="nav-item">
               <a
-                className="nav-link text-secondary hover-gold-nav fw-semibold px-3"
-                href="#Videos"
-                onClick={(e) => handleScroll(e, "Videos")}
-              >
-                Videos
-              </a>
-            </li>
-
-            <li className="nav-item">
-              <a
-                className="nav-link text-secondary hover-gold-nav fw-semibold px-3"
+                className="nav-link text-secondary hover-gold-nav fw-semibold px-2"
                 href="#Package"
                 onClick={(e) => handleScroll(e, "Package")}
               >
@@ -107,7 +121,7 @@ export default function Header() {
 
             <li className="nav-item">
               <a
-                className="nav-link text-secondary hover-gold-nav fw-semibold px-3"
+                className="nav-link text-secondary hover-gold-nav fw-semibold px-2"
                 href="#Projects"
                 onClick={(e) => handleScroll(e, "Projects")}
               >
@@ -117,7 +131,7 @@ export default function Header() {
 
             <li className="nav-item">
               <a
-                className="nav-link text-secondary hover-gold-nav fw-semibold px-3"
+                className="nav-link text-secondary hover-gold-nav fw-semibold px-2"
                 href="#Contact"
                 onClick={(e) => handleScroll(e, "Contact")}
               >
@@ -128,16 +142,15 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Modern navigation link style rules updated for high accessibility contrast */}
       <style>{`
-    .hover-gold-nav {
-      color: #4b5563 !important; /* Premium dark-gray color for unhovered links */
-      transition: all 0.2s ease-in-out;
-    }
-    .hover-gold-nav:hover {
-      color: #C68F00 !important; /* Slightly deeper gold for perfect contrast visibility on white backgrounds */
-    }
-  `}</style>
+        .hover-gold-nav {
+          color: #4b5563 !important;
+          transition: all 0.2s ease-in-out;
+        }
+        .hover-gold-nav:hover {
+          color: #C68F00 !important;
+        }
+      `}</style>
     </nav>
   );
 }

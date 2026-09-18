@@ -10,7 +10,7 @@ export default function Video() {
             className="fw-black display-5 text-dark mb-2"
             style={{ fontWeight: "800", letterSpacing: "-0.02em" }}
           >
-            Watch Videos
+            Project Videos
           </h2>
           {/* Minimalist modern gold accent line underneath */}
           <div

@@ -1,5 +1,6 @@
 import { contactInfo } from "./content/content.json";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   // Local state for the contact form inputs
@@ -17,29 +18,34 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // 1. Define your operational receiving company business mobile number
-    // Format: International format without any spaces, dashes, or '+' signs (e.g., 91xxxxxxxxxx)
-    const companyWhatsappNumber = "9655483868";
+    // 1. Map your form data state variables into an object matching your template variables
+    const templateParams = {
+      from_name: formData.name,
+      from_phone: formData.phone,
+      from_email: formData.email,
+      message: formData.message,
+      to_email: "your-email@example.com", // You can also set this inside the EmailJS dashboard instead
+    };
 
-    // 2. Draft a clean, professional multi-line construction specification statement string
-    const messageString =
-      `🏗️ *New Business Enquiry - Fornax Home Developers*\n\n` +
-      `👤 *Name:* ${formData.name}\n` +
-      `📞 *Phone:* ${formData.phone}\n` +
-      `✉️ *Email:* ${formData.email}\n` +
-      `💬 *Message:* ${formData.message}`;
+    // 2. Send the email silently via the cloud service API endpoint
+    emailjs
+      .send(
+        "YOUR_SERVICE_ID", // Get from EmailJS Dashboard
+        "YOUR_TEMPLATE_ID", // Get from EmailJS Dashboard
+        templateParams,
+        "YOUR_PUBLIC_KEY", // Get from EmailJS Account Settings
+      )
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        alert("Enquiry sent successfully, we will get back to you soon!");
 
-    // 3. Encode the message string text to handle spaces, breaks, and special emojis cleanly in browsers
-    const encodedMessage = encodeURIComponent(messageString);
-
-    // 4. Synthesize the unified direct application messaging routing URL
-    const whatsappApiUrl = `https://wa.me/${companyWhatsappNumber}?text=${encodedMessage}`;
-
-    // 5. Open WhatsApp in a clean, isolated separate browser navigation tab window sandbox
-    window.open(whatsappApiUrl, "_blank", "noopener,noreferrer");
-
-    // 6. Optional UI Clean-up: Reset local text field controller inputs back to clear placeholders
-    setFormData({ name: "", phone: "", email: "", message: "" });
+        // 3. UI Clean-up on successful transmission
+        setFormData({ name: "", phone: "", email: "", message: "" });
+      })
+      .catch((err) => {
+        console.error("FAILED...", err);
+        alert("Failed to send email. Please try again.");
+      });
   };
 
   return (

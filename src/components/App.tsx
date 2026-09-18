@@ -1,62 +1,43 @@
-import About from "./About";
-import Contact from "./Contact";
-import Experts from "./Experts";
-import Features from "./Features";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./Home";
+import ContructionPackage from "./ConstructionPackage";
+import DesignPackage from "./DesignPackage";
 import Header from "./Header";
-import Package from "./Package";
-import Projects from "./Projects";
-import Stats from "./Stats";
-import Testimonial from "./Testimonial";
-import Video from "./Video";
-import Whatwedo from "./Whatwedo";
-import Location from "./Location";
-import Cta from "./Cta";
-import Footer from "./Footer";
-import Banner from "./Banner";
-import ArchitecturalPreloader from "./Preloader";
 import FloatingContact from "./FloatingContact";
-import WhyFornax from "./WhyFornax";
+import Footer from "./Footer";
+import { useEffect, useState } from "react";
+import ContactBanner from "./ContactBanner";
+import ScrollToTop from "./ScrollToTop";
 
 export default function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    // Start timer on initial page load
+    const timer = setTimeout(() => {
+      setIsModalOpen(true);
+    }, 5000); // 5000ms = 5 seconds
+
+    // Clear timeout if the component unmounts before 5s
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div>
-      <ArchitecturalPreloader />
+    <BrowserRouter>
       <Header />
-
-      <div id="home">
-        <Banner />
-      </div>
-
-      <div id="Features">
-        <Features />
-      </div>
-
-      <div id="About">
-        <About />
-      </div>
-
-      <Whatwedo />
-      <Testimonial />
-      {/* <Projects /> */}
-      <div id="Projects">
-        <Projects />
-      </div>
-      <div id="Videos">
-        <Video />
-      </div>
-      <div id="Package">
-        <Package />
-      </div>
-      <Stats />
-      <WhyFornax />
-      <Experts />
-      <Location />
-      <div id="Contact">
-        <Contact />
-      </div>
-      <Cta />
+      <ScrollToTop />
+      <ContactBanner
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
+      <Routes>
+        <Route path="/Home" element={<Home />} />
+        <Route path="/ContructionPackage" element={<ContructionPackage />} />
+        <Route path="/DesignPackage" element={<DesignPackage />} />
+        {/* <Route path="*" element={<NotFound />} /> */}
+      </Routes>
       <Footer />
       <FloatingContact />
-    </div>
+    </BrowserRouter>
   );
 }

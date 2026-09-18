@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function FloatingContact() {
   const phoneNumber = "9655483868"; // Replace with your country code + phone number
   const whatsappMessage = encodeURIComponent(
