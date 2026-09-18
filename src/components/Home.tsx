@@ -73,7 +73,7 @@ export default function Home() {
         <Package />
       </div>
       <Stats />
-      <Instagram />
+      {/* <Instagram /> */}
       <WhyFornax />
       <Experts />
       <Location />

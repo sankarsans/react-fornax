@@ -1,4 +1,5 @@
 import { heroBanner } from "./content/content.json";
+import bannerVideo from "../assets/banner-video.mp4";
 
 export default function Banner() {
   return (
@@ -12,11 +13,17 @@ export default function Banner() {
         loop
         muted
         playsInline
-        poster={heroBanner.fallbackImageUrl}
-        className="position-absolute top-50 start-50 w-100 h-100 object-fit-cover translate-middle z-0"
-        style={{ pointerEvents: "none" }}
+        className="position-absolute top-50 start-50 w-100 h-100 object-fit-cover  z-0"
+        style={{
+          pointerEvents: "none",
+          width: "100vmax",
+          height: "100vmax",
+          minWidth: "100vmax",
+          minHeight: "100vmax",
+          transform: "translate(-50%, -50%) rotate(-90deg)",
+        }}
       >
-        <source src={heroBanner.videoUrl} type="video/mp4" />
+        <source src={bannerVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 

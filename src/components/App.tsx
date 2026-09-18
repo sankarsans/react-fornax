@@ -23,7 +23,7 @@ export default function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/react-fornax">
       <Header />
       <ScrollToTop />
       <ContactBanner

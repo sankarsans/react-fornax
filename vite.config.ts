@@ -6,6 +6,6 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   // Since your site is deploying to the root domain https://sankarsans.github.io/
-  base: "/",
-  // base: "/react-fornax/",
+  // base: "/",
+  base: "/react-fornax/",
 });

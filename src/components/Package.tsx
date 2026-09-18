@@ -4,7 +4,7 @@ export default function Package() {
   return (
     <div
       className="package bg-white text-dark py-5 px-3"
-      style={{ backgroundColor: "#ffffff", minHeight: "100vh" }}
+      style={{ backgroundColor: "#ffffff" }}
     >
       <div className="container my-4">
         {/* Section Header */}

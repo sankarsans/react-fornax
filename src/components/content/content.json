@@ -3,7 +3,7 @@
     "titleMain": "Welcome to",
     "brandName": "Fornax Home Developers",
     "tagline": "We build your dream home at an affordable cost",
-    "videoUrl": "https://assets.mixkit.co/videos/preview/mixkit-interior-of-a-modern-luxury-living-room-42205-large.mp4",
+    "videoUrl": "/assets/banner-video.mp4",
     "fallbackImageUrl": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
   },
   "features": [
@@ -64,7 +64,7 @@
   "testimonials": [
     {
       "id": 1,
-      "text": "We got to know about Shantha ventures when we visited our friend's new house. When we approached shantha ventures for the construction of our house we received a professional response right from planning to implementation. The team is very professional and open to feedback. Thanks for the quality work."
+      "text": "We got to know about Fornax Home Developers when we visited our friend's new house. When we approached Fornax Home Developers for the construction of our house we received a professional response right from planning to implementation. The team is very professional and open to feedback. Thanks for the quality work."
     },
     {
       "id": 2,
@@ -229,7 +229,7 @@
     "primaryPhone": "+91 9655483868"
   },
   "footerData": {
-    "aboutText": "The primary goal of Shantha Ventures is to provide quality construction work and unmatched customer satisfaction in the construction industry. We cater to Industrial, commercial, and residential construction projects.",
+    "aboutText": "The primary goal of Fornax Home Developers is to provide quality construction work and unmatched customer satisfaction in the construction industry. We cater to Industrial, commercial, and residential construction projects.",
     "phone": "+91 9655483868",
     "email": "info.fornaxhd@gmail.com",
     "copyright": "© 2026 Fornax Home Developers. All Rights Reserved.",
