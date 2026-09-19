@@ -20,20 +20,20 @@ export default function Contact() {
 
     // 1. Map your form data state variables into an object matching your template variables
     const templateParams = {
+      selected_package: "General Inquiry",
       from_name: formData.name,
       from_phone: formData.phone,
       from_email: formData.email,
       message: formData.message,
-      to_email: "your-email@example.com", // You can also set this inside the EmailJS dashboard instead
     };
 
     // 2. Send the email silently via the cloud service API endpoint
     emailjs
       .send(
-        "YOUR_SERVICE_ID", // Get from EmailJS Dashboard
-        "YOUR_TEMPLATE_ID", // Get from EmailJS Dashboard
+        "service_sffmfzj", // Get from EmailJS Dashboard
+        "template_lmtq8if", // Get from EmailJS Dashboard
         templateParams,
-        "YOUR_PUBLIC_KEY", // Get from EmailJS Account Settings
+        "16qxfkWtiuJ-XJqOG", // Get from EmailJS Account Settings
       )
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);

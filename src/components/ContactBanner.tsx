@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function ContactBanner({
   isOpen,
@@ -10,7 +11,7 @@ export default function ContactBanner({
     name: "",
     phone: "",
     email: "",
-    city: "",
+    message: "",
   });
 
   // Handle smooth transition lifecycle
@@ -30,10 +31,37 @@ export default function ContactBanner({
     }));
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted:", { ...formData, package: selectedPackage });
-    onClose();
+
+    // 1. Map your form data state variables into an object matching your template variables
+    const templateParams = {
+      selected_package: "General Inquiry",
+      from_name: formData.name,
+      from_phone: formData.phone,
+      from_email: formData.email,
+      message: formData.message,
+    };
+
+    // 2. Send the email silently via the cloud service API endpoint
+    emailjs
+      .send(
+        "service_sffmfzj", // Get from EmailJS Dashboard
+        "template_lmtq8if", // Get from EmailJS Dashboard
+        templateParams,
+        "16qxfkWtiuJ-XJqOG", // Get from EmailJS Account Settings
+      )
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        alert("Enquiry sent successfully, we will get back to you soon!");
+
+        // 3. UI Clean-up on successful transmission
+        setFormData({ name: "", phone: "", email: "", message: "" });
+      })
+      .catch((err) => {
+        console.error("FAILED...", err);
+        alert("Failed to send email. Please try again.");
+      });
   };
 
   if (!isOpen) return null;
@@ -164,24 +192,16 @@ export default function ContactBanner({
 
                 <div className="mb-3">
                   <label className="form-label small fw-semibold text-secondary mb-1">
-                    City *
+                    Message *
                   </label>
-                  <select
-                    name="city"
+                  <textarea
+                    name="message"
                     required
-                    value={formData.city}
+                    value={formData.message}
                     onChange={handleChange}
-                    className="form-select form-select-sm rounded-0 border-secondary-subtle text-secondary"
-                  >
-                    <option value="" disabled>
-                      Select City
-                    </option>
-                    <option value="Chennai">Chennai</option>
-                    <option value="Salem">Salem</option>
-                    <option value="Bangalore">Bangalore</option>
-                    <option value="Hyderabad">Hyderabad</option>
-                    <option value="Coimbatore">Coimbatore</option>
-                  </select>
+                    placeholder="Enter your message"
+                    className="form-control form-control-sm rounded-0 border-secondary-subtle text-secondary"
+                  ></textarea>
                 </div>
 
                 <button
